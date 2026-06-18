@@ -15,24 +15,20 @@ The official [42Crunch](https://www.42crunch.com) skills for [Kiro](https://kiro
     42crunch-setup/                  # One-time environment setup skill
     code-to-oas/                     # Generate OAS from API source code
     postman-to-oas/                  # Convert Postman collection to OAS
-    42crunch-references/             # Shared reference docs loaded by skills at runtime
+  steering/
+    references/                      # Shared reference docs loaded by skills at runtime
 ```
 
 ## Installation
 
-Copy the `.kiro/skills/` directory into your project root:
+Skills are installed per-project. Copy the `.kiro/` directory into your project root:
 
 ```bash
 git clone https://github.com/42Crunch-AI/kiro-plugins.git /tmp/42crunch-kiro
-cp -r /tmp/42crunch-kiro/.kiro/skills .kiro/skills
+cp -r /tmp/42crunch-kiro/.kiro .
 ```
 
-To make the skills available across all workspaces instead, copy to your global Kiro directory:
-
-```bash
-git clone https://github.com/42Crunch-AI/kiro-plugins.git /tmp/42crunch-kiro
-cp -r /tmp/42crunch-kiro/.kiro/skills/* ~/.kiro/skills/
-```
+The `steering/references/` directory must be present alongside the skills — the skills reference those files at runtime using workspace-relative paths.
 
 ## Prerequisites
 
@@ -108,7 +104,7 @@ schemes.
 
 ## Quick Start
 
-1. **Install the skills** — copy `.kiro/` into your workspace (see Installation above)
+1. **Install the skills** — copy `.kiro/` into your project root (see Installation above)
 2. **Set up the environment** — say: *"set up 42crunch"*
 3. **Audit your API** — say: *"run a 42Crunch audit"*
 4. **Fix issues** — Kiro presents findings by severity and asks your consent before changing anything
