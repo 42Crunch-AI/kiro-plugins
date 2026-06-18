@@ -20,9 +20,9 @@ Does **not** run a live scan — use the `42crunch-scan` skill for that.
 
 ## Entry Point
 
-1. **Pre-flight checks.** Read `../42crunch-references/pre-flight.md` and complete
-   all steps (setup, OAS resolution, tag detection). When prompting for OAS
-   file selection, use the context `"audit"` (e.g. "Which one should I audit?").
+1. **Pre-flight checks.** Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/pre-flight.md]]
+   When prompting for OAS file selection, use the context `"audit"` (e.g. "Which one should I audit?").
    Do not proceed if any step fails or the user cancels.
 
 2. **Ask for permission.** Call `AskUserQuestion`:
@@ -30,8 +30,9 @@ Does **not** run a live scan — use the `42crunch-scan` skill for that.
    - **options**: `["Yes, proceed", "No, cancel"]`
 
 3. **Execute the Audit.** Mode is already resolved from pre-flight — do not
-   re-derive it. Read `../42crunch-references/audit-workflow.md` and apply only the
-   commands for the identified mode throughout.
+   re-derive it. Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
+   Apply only the commands for the identified mode throughout.
    The workflow runs the audit, then presents a **developer-readable,
    risk-classified report** (SQG-Blocking / Security / Data Validation tiers)
    with plain-English titles and risk descriptions — no raw rule IDs. It then
@@ -80,7 +81,9 @@ Audit Complete
 Show only the one SQG line that matches the current mode and result.
 
 The `Score change:` row is produced from the delta values computed in
-Step 4 of `../42crunch-references/audit-workflow.md`. Omit it when no audit fixes were
+Step 4 of:
+#[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
+Omit it when no audit fixes were
 applied (user declined at the consent gate, or there were no SQG-blocking issues).
 
 ---
@@ -92,4 +95,5 @@ applied (user declined at the consent gate, or there were no SQG-blocking issues
 | `SCAN42C_HOST`  | Not used by audit — scan only |
 
 All other variables (`API_KEY`, `PLATFORM_HOST`, `TRIAL_TOKEN`) and general
-constraints are defined in `../42crunch-references/pre-flight.md`.
+constraints are defined in:
+#[[file:.kiro/skills/42crunch-references/pre-flight.md]]

@@ -25,9 +25,9 @@ running `42crunch-audit` first.
 
 ## Entry Point
 
-1. **Pre-flight checks.** Read `../42crunch-references/pre-flight.md` and complete
-   all steps (setup, OAS resolution, tag detection). When prompting for OAS
-   file selection, use the context `"scan"` (e.g. "Which one should I scan?").
+1. **Pre-flight checks.** Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/pre-flight.md]]
+   When prompting for OAS file selection, use the context `"scan"` (e.g. "Which one should I scan?").
    Do not proceed if any step fails or the user cancels.
 
 2. **Resolve the scan target URL.**
@@ -70,11 +70,13 @@ running `42crunch-audit` first.
 5. **Execute the Scan.** Mode is already resolved from pre-flight — do not
    re-derive it.
 
-   **Reachability check** — read `../42crunch-references/reachability-check.md` and run
-   the two-stage probe now. Return here once it completes (or stop if the user cancels).
+   **Reachability check** — follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/reachability-check.md]]
+   Return here once it completes (or stop if the user cancels).
 
-   Read `../42crunch-references/scan-workflow.md` and apply only the
-   commands for the identified mode throughout.
+   Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/scan-workflow.md]]
+   Apply only the commands for the identified mode throughout.
    The workflow sets up the scan config, collects credentials, gathers test data,
    shows a complete operation-by-operation classification table, validates happy paths,
    then asks for permission again before running the full scan. It presents a **risk-classified findings report**
@@ -142,4 +144,5 @@ If the user declined to apply fixes or no issues were found, note that instead.
 | `SCAN42C_HOST` | Scan target base URL (overrides OAS `servers[0]`) — Both modes |
 
 All other variables (`API_KEY`, `PLATFORM_HOST`, `TRIAL_TOKEN`) and general
-constraints are defined in `../42crunch-references/pre-flight.md`.
+constraints are defined in:
+#[[file:.kiro/skills/42crunch-references/pre-flight.md]]

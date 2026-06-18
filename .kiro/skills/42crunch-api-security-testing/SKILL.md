@@ -20,9 +20,9 @@ explicit user permission before execution.
 
 ## Entry Point
 
-1. **Pre-flight checks.** Read `../42crunch-references/pre-flight.md` and complete
-   all steps (setup, OAS resolution, tag detection). When prompting for OAS
-   file selection, use the context `"pipeline"` (e.g. "Which one should I run
+1. **Pre-flight checks.** Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/pre-flight.md]]
+   When prompting for OAS file selection, use the context `"pipeline"` (e.g. "Which one should I run
    through the pipeline?"). Do not proceed if any step fails or the user cancels.
 
 2. **Ask for Phase 1 permission.** Call `AskUserQuestion`:
@@ -30,8 +30,9 @@ explicit user permission before execution.
    - **options**: `["Yes, proceed", "No, cancel"]`
 
 3. **Execute Phase 1 — Audit.** Mode is already resolved from pre-flight — do
-   not re-derive it. Read `../42crunch-references/audit-workflow.md` and apply only
-   the commands for the identified mode throughout.
+   not re-derive it. Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
+   Apply only the commands for the identified mode throughout.
    The workflow runs the audit, then presents a **developer-readable,
    risk-classified report** (SQG-Blocking / Security / Data Validation tiers)
    with plain-English titles and risk descriptions — no raw rule IDs. It then
@@ -79,11 +80,13 @@ explicit user permission before execution.
 7. **Execute Phase 2 — Scan.** Mode is already resolved from pre-flight — do
    not re-derive it.
 
-   **Reachability check** — read `../42crunch-references/reachability-check.md` and run
-   the two-stage probe now. Return here once it completes (or stop if the user cancels).
+   **Reachability check** — follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/reachability-check.md]]
+   Return here once it completes (or stop if the user cancels).
 
-   Read `../42crunch-references/scan-workflow.md` and apply only
-   the commands for the identified mode throughout.
+   Follow all steps in:
+   #[[file:.kiro/skills/42crunch-references/scan-workflow.md]]
+   Apply only the commands for the identified mode throughout.
    The workflow sets up the scan config, collects credentials, gathers test data,
    shows a complete operation-by-operation classification table, validates happy paths,
    then asks for permission again before running the full scan. It presents a **risk-classified findings report**
@@ -150,7 +153,9 @@ Phase 2 — Scan Complete
 Show only the one SQG line per phase that matches the current mode and result.
 
 The `Score change:` row in Phase 1 is produced from the delta values computed in
-Step 4 of `../42crunch-references/audit-workflow.md`. Omit it when no audit fixes were
+Step 4 of:
+#[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
+Omit it when no audit fixes were
 applied (user declined at the consent gate, or there were no SQG-blocking issues).
 
 If a phase was skipped (user declined), note that instead of its results.
@@ -164,4 +169,5 @@ If a phase was skipped (user declined), note that instead of its results.
 | `SCAN42C_HOST` | Scan target base URL (overrides OAS `servers[0]`) — Both modes |
 
 All other variables (`API_KEY`, `PLATFORM_HOST`, `TRIAL_TOKEN`) and general
-constraints are defined in `../42crunch-references/pre-flight.md`.
+constraints are defined in:
+#[[file:.kiro/skills/42crunch-references/pre-flight.md]]

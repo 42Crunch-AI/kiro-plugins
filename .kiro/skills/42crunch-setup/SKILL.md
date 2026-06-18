@@ -47,13 +47,15 @@ explain what they'll be able to do once setup is complete:
 
 ### Step 2 — Binary setup
 
-Follow `../42crunch-references/binary-setup.md` completely (verbose mode — announce each major step to the user).
+Follow completely (verbose mode — announce each major step to the user):
+   #[[file:.kiro/skills/42crunch-references/binary-setup.md]]
 
 Stop and surface a clear error if the binary cannot be installed. Do not proceed to Step 3.
 
 ### Step 3 — Credential setup
 
-Follow `../42crunch-references/credential-setup.md` completely.
+Follow completely:
+   #[[file:.kiro/skills/42crunch-references/credential-setup.md]]
 
 The procedure covers, in order:
 - Silently check whether credentials are already present in
