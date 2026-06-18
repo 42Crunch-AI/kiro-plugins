@@ -33,7 +33,7 @@ To make the skills available across all workspaces instead, copy to your global 
 ```bash
 git clone https://github.com/42Crunch-AI/kiro-plugins.git /tmp/42crunch-kiro
 cp -r /tmp/42crunch-kiro/.kiro/skills/* ~/.kiro/skills/
-cp -r /tmp/42crunch-kiro/.kiro/steering/* ~/.kiro/steering/
+cp -r /tmp/42crunch-kiro/.kiro/steering/references ~/.kiro/steering/references
 ```
 
 ## Prerequisites
