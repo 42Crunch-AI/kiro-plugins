@@ -15,17 +15,16 @@ The official [42Crunch](https://www.42crunch.com) skills for [Kiro](https://kiro
     42crunch-setup/                  # One-time environment setup skill
     code-to-oas/                     # Generate OAS from API source code
     postman-to-oas/                  # Convert Postman collection to OAS
-  steering/
-    references/                      # Shared reference docs loaded by skills at runtime
+    42crunch-references/             # Shared reference docs loaded by skills at runtime
 ```
 
 ## Installation
 
-Copy the `.kiro/` directory into your project root:
+Copy the `.kiro/skills/` directory into your project root:
 
 ```bash
 git clone https://github.com/42Crunch-AI/kiro-plugins.git /tmp/42crunch-kiro
-cp -r /tmp/42crunch-kiro/.kiro .
+cp -r /tmp/42crunch-kiro/.kiro/skills .kiro/skills
 ```
 
 To make the skills available across all workspaces instead, copy to your global Kiro directory:
@@ -33,7 +32,6 @@ To make the skills available across all workspaces instead, copy to your global 
 ```bash
 git clone https://github.com/42Crunch-AI/kiro-plugins.git /tmp/42crunch-kiro
 cp -r /tmp/42crunch-kiro/.kiro/skills/* ~/.kiro/skills/
-cp -r /tmp/42crunch-kiro/.kiro/steering/references ~/.kiro/steering/references
 ```
 
 ## Prerequisites
