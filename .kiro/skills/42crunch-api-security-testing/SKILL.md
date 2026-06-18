@@ -21,7 +21,7 @@ explicit user permission before execution.
 ## Entry Point
 
 1. **Pre-flight checks.** Follow all steps in:
-   #[[file:.kiro/steering/references/pre-flight.md]]
+   #[[file:.kiro/skills/42crunch-references/pre-flight.md]]
    When prompting for OAS file selection, use the context `"pipeline"` (e.g. "Which one should I run
    through the pipeline?"). Do not proceed if any step fails or the user cancels.
 
@@ -31,7 +31,7 @@ explicit user permission before execution.
 
 3. **Execute Phase 1 — Audit.** Mode is already resolved from pre-flight — do
    not re-derive it. Follow all steps in:
-   #[[file:.kiro/steering/references/audit-workflow.md]]
+   #[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
    Apply only the commands for the identified mode throughout.
    The workflow runs the audit, then presents a **developer-readable,
    risk-classified report** (SQG-Blocking / Security / Data Validation tiers)
@@ -81,11 +81,11 @@ explicit user permission before execution.
    not re-derive it.
 
    **Reachability check** — follow all steps in:
-   #[[file:.kiro/steering/references/reachability-check.md]]
+   #[[file:.kiro/skills/42crunch-references/reachability-check.md]]
    Return here once it completes (or stop if the user cancels).
 
    Follow all steps in:
-   #[[file:.kiro/steering/references/scan-workflow.md]]
+   #[[file:.kiro/skills/42crunch-references/scan-workflow.md]]
    Apply only the commands for the identified mode throughout.
    The workflow sets up the scan config, collects credentials, gathers test data,
    shows a complete operation-by-operation classification table, validates happy paths,
@@ -154,7 +154,7 @@ Show only the one SQG line per phase that matches the current mode and result.
 
 The `Score change:` row in Phase 1 is produced from the delta values computed in
 Step 4 of:
-#[[file:.kiro/steering/references/audit-workflow.md]]
+#[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
 Omit it when no audit fixes were
 applied (user declined at the consent gate, or there were no SQG-blocking issues).
 
@@ -170,4 +170,4 @@ If a phase was skipped (user declined), note that instead of its results.
 
 All other variables (`API_KEY`, `PLATFORM_HOST`, `TRIAL_TOKEN`) and general
 constraints are defined in:
-#[[file:.kiro/steering/references/pre-flight.md]]
+#[[file:.kiro/skills/42crunch-references/pre-flight.md]]

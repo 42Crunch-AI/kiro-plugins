@@ -21,7 +21,7 @@ Does **not** run a live scan — use the `42crunch-scan` skill for that.
 ## Entry Point
 
 1. **Pre-flight checks.** Follow all steps in:
-   #[[file:.kiro/steering/references/pre-flight.md]]
+   #[[file:.kiro/skills/42crunch-references/pre-flight.md]]
    When prompting for OAS file selection, use the context `"audit"` (e.g. "Which one should I audit?").
    Do not proceed if any step fails or the user cancels.
 
@@ -31,7 +31,7 @@ Does **not** run a live scan — use the `42crunch-scan` skill for that.
 
 3. **Execute the Audit.** Mode is already resolved from pre-flight — do not
    re-derive it. Follow all steps in:
-   #[[file:.kiro/steering/references/audit-workflow.md]]
+   #[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
    Apply only the commands for the identified mode throughout.
    The workflow runs the audit, then presents a **developer-readable,
    risk-classified report** (SQG-Blocking / Security / Data Validation tiers)
@@ -82,7 +82,7 @@ Show only the one SQG line that matches the current mode and result.
 
 The `Score change:` row is produced from the delta values computed in
 Step 4 of:
-#[[file:.kiro/steering/references/audit-workflow.md]]
+#[[file:.kiro/skills/42crunch-references/audit-workflow.md]]
 Omit it when no audit fixes were
 applied (user declined at the consent gate, or there were no SQG-blocking issues).
 
@@ -96,4 +96,4 @@ applied (user declined at the consent gate, or there were no SQG-blocking issues
 
 All other variables (`API_KEY`, `PLATFORM_HOST`, `TRIAL_TOKEN`) and general
 constraints are defined in:
-#[[file:.kiro/steering/references/pre-flight.md]]
+#[[file:.kiro/skills/42crunch-references/pre-flight.md]]
