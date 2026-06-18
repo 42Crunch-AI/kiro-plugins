@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Tag Detection
 
 ## Purpose

@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Credential Setup Reference
 
 Follow this procedure to configure credentials used by all 42Crunch skills.

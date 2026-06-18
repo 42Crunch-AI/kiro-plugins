@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Scan Workflow
 
 > **Command conventions used throughout this file**

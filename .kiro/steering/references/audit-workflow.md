@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Audit Workflow
 
 > **Command conventions used throughout this file**

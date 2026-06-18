@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Binary Setup
 
 Full installation and update procedure for the `42c-ast` binary.

@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Pre-flight Checks
 
 Shared entry point for all 42Crunch skills. Run these steps in order before

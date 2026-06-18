@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Audit Rule-ID Translation Table
 
 Match each rule ID by suffix. When multiple suffixes match, use the most

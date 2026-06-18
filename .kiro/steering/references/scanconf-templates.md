@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 ## Scanconf Template
 
 Generic structural reference for `scanconf.json` (version 2.0.0). Use this when building or repairing a config manually. Replace every `<placeholder>` with the API-specific value. Omit `authorizationTests` when no BOLA/BFLA candidates exist; omit `requests` when no standalone utility requests are needed.

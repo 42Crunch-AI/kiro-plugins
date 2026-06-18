@@ -1,3 +1,6 @@
+---
+inclusion: manual
+---
 # Reachability Check
 
 Two-stage probe to confirm `SCAN_TARGET_URL` is reachable before configuring
