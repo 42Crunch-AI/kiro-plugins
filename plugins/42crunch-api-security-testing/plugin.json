@@ -1,0 +1,32 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "42crunch-api-security-testing",
+  "version": "1.16.0",
+  "description": "Catch API security issues during development: audit, scan, remediate, validate with AI guardrails in Kiro.",
+  "author": {
+    "name": "42Crunch",
+    "email": "support@42crunch.com"
+  },
+  "homepage": "https://42crunch.com",
+  "repository": "https://github.com/42Crunch-AI/kiro-plugins",
+  "license": "MIT",
+  "keywords": [
+    "openapi",
+    "api-security",
+    "audit",
+    "scan",
+    "remediation",
+    "vulnerability",
+    "compliance",
+    "owasp",
+    "ai",
+    "devsecops",
+    "42crunch",
+    "42c-ast",
+    "oas",
+    "swagger",
+    "bola",
+    "bfla",
+    "sqg"
+  ]
+}
