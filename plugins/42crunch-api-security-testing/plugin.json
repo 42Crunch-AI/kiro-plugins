@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "42crunch-api-security-testing",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "description": "Catch API security issues during development: audit, scan, remediate, validate with AI guardrails in Kiro.",
   "author": {
     "name": "42Crunch",
