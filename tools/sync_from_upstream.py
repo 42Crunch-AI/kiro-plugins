@@ -59,8 +59,12 @@ FORBIDDEN = [
     (re.compile(r"<scripts>"), "bundled-scripts placeholder (not yet ported)"),
 ]
 
-# Extra activation keywords: Kiro loads a power when the conversation matches one.
-KIRO_KEYWORDS = ["42crunch", "42c-ast", "oas", "swagger", "bola", "bfla", "sqg"]
+# Kiro picks a power by its description and keywords, so both must name what the
+# plugin covers. Without "graphql" the agent assumes OpenAPI only.
+KIRO_DESCRIPTION = ("Audit OpenAPI specs and GraphQL schemas, scan running REST and GraphQL APIs "
+                    "for vulnerabilities including BOLA/BFLA, and apply fixes with AI guardrails in Kiro.")
+KIRO_KEYWORDS = ["42crunch", "42c-ast", "oas", "swagger", "graphql", "graphql-security", "rest-api",
+                 "api-scan", "bola", "bfla", "sqg"]
 
 SKILL_NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 MD_NAME_RE = re.compile(r"[A-Za-z0-9_-]+\.md")
@@ -89,11 +93,12 @@ def build_plugin_json(src):
     keywords = list(up.get("keywords", []))
     keywords += [k for k in KIRO_KEYWORDS if k not in keywords]
     author = {k: v for k, v in up["author"].items() if k in ("name", "email", "url")}
+    author.setdefault("url", "https://42crunch.com")
     return {
         "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
         "name": PLUGIN,
         "version": up["version"],
-        "description": transform(up["description"]),
+        "description": KIRO_DESCRIPTION,
         "author": author,
         "homepage": "https://42crunch.com",
         "repository": "https://github.com/42Crunch-AI/kiro-plugins",

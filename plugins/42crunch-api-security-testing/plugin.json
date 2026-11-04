@@ -2,10 +2,11 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "42crunch-api-security-testing",
   "version": "1.17.0",
-  "description": "Catch API security issues during development: audit, scan, remediate, validate with AI guardrails in Kiro.",
+  "description": "Audit OpenAPI specs and GraphQL schemas, scan running REST and GraphQL APIs for vulnerabilities including BOLA/BFLA, and apply fixes with AI guardrails in Kiro.",
   "author": {
     "name": "42Crunch",
-    "email": "support@42crunch.com"
+    "email": "support@42crunch.com",
+    "url": "https://42crunch.com"
   },
   "homepage": "https://42crunch.com",
   "repository": "https://github.com/42Crunch-AI/kiro-plugins",
@@ -25,6 +26,10 @@
     "42c-ast",
     "oas",
     "swagger",
+    "graphql",
+    "graphql-security",
+    "rest-api",
+    "api-scan",
     "bola",
     "bfla",
     "sqg"
