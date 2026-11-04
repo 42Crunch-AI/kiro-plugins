@@ -16,21 +16,29 @@ Plugins use the [Agent Plugins](https://agent-plugins.org) format and install in
 
 ## Maintainers
 
-The plugin's skills, references, `RECIPES.md`, and `plugin.json` are generated from the [GitHub Copilot port](https://github.com/42Crunch-AI/copilot-plugins), whose skills are already host-neutral. Only `README.md` and `LICENSE` under the plugin folder are maintained here by hand. To pull in an upstream release:
+Each skill ships its own copy of the reference documents it uses (`skills/<skill>/references/`), because a skill imported on its own only receives its own folder. To keep those copies identical, the reference documents are edited in one place:
+
+| Edit this | To change |
+|---|---|
+| `shared/references/*.md` | Workflow reference documents used by the skills |
+| `plugins/42crunch-api-security-testing/skills/*/SKILL.md` | A skill's entry point and frontmatter |
+| `plugins/42crunch-api-security-testing/README.md`, `RECIPES.md` | User-facing documentation |
+| `plugins/42crunch-api-security-testing/plugin.json` | Version, description, and activation keywords (Kiro chooses a power by its description and keywords, so they must name what the plugin covers) |
+
+Never edit `skills/*/references/` directly. After changing anything, run:
 
 ```bash
-git clone https://github.com/42Crunch-AI/copilot-plugins.git ../copilot-plugins
-python3 tools/sync_from_upstream.py --upstream ../copilot-plugins
+python3 tools/build.py
 ```
 
-The script:
+It copies each skill's references from `shared/references/` (only the documents that skill mentions, directly or through another reference) and checks the plugin:
 
-- copies every reference file a skill needs into that skill's own `references/` folder;
-- rewrites paths, product names, and Free Trial attribution for Kiro;
-- writes `plugin.json` with the upstream version and a Kiro-specific description and keywords (Kiro chooses a power by these, so they must name OpenAPI and GraphQL);
-- fails if any other host's wording (tool names, product names, attribution) remains.
+- every skill's references match `shared/references/` and nothing it mentions is missing;
+- no wording from other AI assistants (tool names, product names, Free Trial attribution) has crept in;
+- `SKILL.md` frontmatter follows Kiro's rules;
+- `plugin.json` has the Agent Plugins 1.0.0 shape.
 
-The `upstream-sync` workflow runs it with `--check` on pull requests, on pushes to `main`, and weekly, and fails when this repo falls behind the Copilot plugin. Merge an upstream release in `copilot-plugins` first, then sync here.
+The `check` workflow runs `python3 tools/build.py --check` on pull requests and pushes to `main`, and fails if the skills are stale or the plugin is invalid. Bump `version` in `plugin.json` for each release.
 
 ## License
 
